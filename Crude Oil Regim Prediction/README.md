@@ -304,31 +304,6 @@ Planned extensions include:
 
 ---
 
-## Suggested Repository Structure
-
-```text
-crude-oil-regime-prediction/
-│
-├── README.md
-├── notebooks/
-│   └── crude_oil_regime_prediction.ipynb
-├── data/
-│   └── README.md
-├── images/
-│   ├── crude_oil_price.png
-│   ├── methodology_pipeline.png
-│   ├── validation_results.png
-│   ├── model_selection_frequency.png
-│   ├── network_complexity.png
-│   ├── target_parent_frequency.png
-│   ├── trading_performance.png
-│   └── bayesian_network_periods.png
-├── requirements.txt
-└── LICENSE
-```
-
----
-
 ## References
 
 Selected references used in the project include:
