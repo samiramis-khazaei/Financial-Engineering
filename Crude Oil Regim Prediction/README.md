@@ -133,6 +133,8 @@ The project uses **chronological, non-anchored rolling windows**:
 - A separate final unseen period from **March 2023 to March 2024** is used for final regime prediction and the trading experiment
 
 This design preserves temporal ordering and avoids random shuffling.
+<img width="998" height="708" alt="image" src="https://github.com/user-attachments/assets/e5eab940-6388-4626-a8a4-ef95e95f14af" />
+
 
 ---
 
