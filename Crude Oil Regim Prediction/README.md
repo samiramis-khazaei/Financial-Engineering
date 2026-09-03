@@ -103,6 +103,10 @@ Key preprocessing principles:
 5. Map hidden states to **Low, Middle, High**.
 6. Pass the regime variables into the Bayesian Network.
 
+   
+<img width="998" height="665" alt="image" src="https://github.com/user-attachments/assets/755173d2-4182-4fca-a0ee-8009687d7bea" />
+
+
 ### Bayesian Network Learning
 
 Three structure-learning approaches are compared inside each rolling window:
