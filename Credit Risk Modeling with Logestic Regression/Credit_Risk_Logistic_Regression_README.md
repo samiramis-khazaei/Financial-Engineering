@@ -470,13 +470,13 @@ Future extensions could include:
 
 A business-oriented threshold could ultimately be selected by minimizing expected cost:
 
-\[
+$
 \text{Expected Cost}(c)
 =
 C_{FN}\,FN(c)
 +
 C_{FP}\,FP(c)
-\]
+$
 
 rather than assuming that the two error types have equal economic consequences.
 
@@ -498,31 +498,7 @@ rather than assuming that the two error types have equal economic consequences.
 
 ---
 
-## Suggested Repository Structure
 
-```text
-credit-risk-logistic-regression/
-│
-├── README.md
-├── notebooks/
-│   └── credit_risk_modeling.ipynb
-│
-├── reports/
-│   └── credit_risk_modeling.html
-│
-├── images/
-│   ├── class_distribution.png
-│   ├── numerical_distributions.png
-│   ├── correlation_matrix.png
-│   ├── roc_model_comparison.png
-│   ├── threshold_analysis.png
-│   └── final_model_evaluation.png
-│
-├── requirements.txt
-└── LICENSE
-```
-
----
 
 ## Disclaimer
 
