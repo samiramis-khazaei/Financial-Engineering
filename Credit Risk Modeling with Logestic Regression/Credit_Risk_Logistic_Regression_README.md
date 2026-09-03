@@ -254,15 +254,14 @@ Candidate models were compared using the **Area Under the Receiver Operating Cha
 
 The ROC curve evaluates:
 
-\[
-TPR = \frac{TP}{TP+FN}
-\]
+
+$TPR = \frac{TP}{TP+FN}$
+
 
 against:
 
-\[
-FPR = \frac{FP}{FP+TN}
-\]
+$FPR = \frac{FP}{FP+TN}$
+
 
 across all possible thresholds.
 
@@ -308,15 +307,14 @@ Validation AUC = 0.803
 
 The model produces a probability:
 
-\[
-P(\text{default}\mid X)
-\]
+
+$P(\text{default}\mid X)$
 
 A classification threshold of:
 
-\[
-\boxed{0.55}
-\]
+
+$\boxed{0.55}$
+
 
 was then used for the point classifier:
 
@@ -400,15 +398,14 @@ The final model was applied to a new applicant.
 
 Estimated probability of default:
 
-\[
-P(\text{default}) = 0.412
-\]
+
+$P(\text{default}) = 0.412$
+
 
 Using the project threshold:
 
-\[
-0.412 < 0.55
-\]
+$0.412 < 0.55$
+
 
 the applicant is classified as:
 
@@ -468,13 +465,6 @@ Future extensions could include:
 - PD, LGD, and EAD integration
 - Expected Credit Loss modeling
 
-A business-oriented threshold could ultimately be selected by minimizing expected cost:
-
-
-$\text{Expected Cost}(c)=C_{FN}\,FN(c)+C_{FP}\,FP(c)$
-
-
-rather than assuming that the two error types have equal economic consequences.
 
 ---
 
