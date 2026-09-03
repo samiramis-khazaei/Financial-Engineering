@@ -271,29 +271,6 @@ However, one forecasting relationship remains stable:
 - The trading rule does not generate returns in the final test because all predicted regimes are Middle.
 
 ---
-
-## Limitations
-
-1. **No clean PCA ablation**  
-   The baseline and PCA pipelines differ in more than dimensionality reduction.
-
-2. **Unequal rolling-window counts**  
-   Baseline and PCA aggregate results are not based on exactly the same saved windows.
-
-3. **Limited final-test regime diversity**  
-   All realized final-period targets are Middle.
-
-4. **No persistence benchmark**  
-   The full Bayesian Network should be compared against a simple regime-persistence model.
-
-5. **MAP-only prediction**  
-   Posterior regime probabilities are not yet used for evaluation or trading.
-
-6. **Simple trading layer**  
-   Transaction costs, risk-adjusted performance, and probability-based position sizing are not included.
-
----
-
 ## Future Improvements
 
 Planned extensions include:
