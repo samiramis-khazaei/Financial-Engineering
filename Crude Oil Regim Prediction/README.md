@@ -264,6 +264,15 @@ However, one forecasting relationship remains stable:
 
 > The **current crude-oil regime remains the only direct parent of the next-month regime** in all three period-specific networks.
 
+<img width="930" height="639" alt="image" src="https://github.com/user-attachments/assets/5019ce45-67a1-4082-add7-e2f90e1fe6a9" />
+
+<img width="930" height="639" alt="image" src="https://github.com/user-attachments/assets/0f1b02c2-1a15-4013-92c7-d8a7de878abf" />
+
+<img width="930" height="639" alt="image" src="https://github.com/user-attachments/assets/ecb9ca71-54ce-4bc6-ae96-ba8b06929d30" />
+
+
+
+
 ---
 
 ## Key Takeaways
