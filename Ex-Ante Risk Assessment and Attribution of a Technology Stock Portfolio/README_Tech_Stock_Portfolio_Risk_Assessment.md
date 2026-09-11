@@ -64,9 +64,7 @@ Portfolio weights are calculated as:
 
 $w_n =\frac{h_nP_n}{V}$
 
-The resulting portfolio value is approximately:
-
-$V^{\mathbf{h}} =\$1{,}122{,}981$
+The resulting portfolio value is approximately:1,122,981
 
 ---
 
@@ -99,9 +97,7 @@ Several complementary risk measures are used to characterize the portfolio loss 
 
 #### Expected Loss
 
-The expected loss is approximately:
-
-$\mathbb{E}[L]\approx -0.37\%$
+The expected loss is approximately:-0.37
 
 This corresponds to an expected portfolio return of approximately **+0.37%**.
 
@@ -116,8 +112,7 @@ The standard deviation indicates substantial dispersion around the expected outc
 The portfolio's 99% Value-at-Risk is approximately:10.55
 
 
-
-In dollar terms:$118{,}475$
+In dollar terms:118,475
 
 This means there is approximately a **1% probability that the portfolio loss will exceed this level** over the one-week horizon.
 
@@ -125,7 +120,7 @@ This means there is approximately a **1% probability that the portfolio loss wil
 
 The portfolio's 99% Conditional Value-at-Risk is approximately:12.63
 
-In dollar terms:$141{,}822$
+In dollar terms:141,822
 
 Conditional on being in the worst 1% of scenarios, the average loss is therefore approximately **$141,822**.
 
