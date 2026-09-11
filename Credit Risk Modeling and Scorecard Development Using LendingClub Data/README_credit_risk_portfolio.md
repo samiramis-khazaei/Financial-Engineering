@@ -117,10 +117,7 @@ A remaining improvement is to label missing `emp_length` as **Missing/Unknown** 
 
 `earliest_cr_line` is converted into a borrower credit-history duration:
 
-$
-CreditHistoryMonths =
-IssueDate - EarliestCreditLine
-$
+$CreditHistoryMonths =IssueDate - EarliestCreditLine$
 
 This transforms two dates into a more interpretable risk variable: the number of months the borrower has had recorded credit history.
 
