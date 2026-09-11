@@ -52,7 +52,7 @@ The analysis is based on:
 
 The current portfolio value is calculated by aggregating the market value of each position:
 
-$V = \sum_{n=1}^{N} h_n P_n$
+$V =\sum_{n=1}^{N} h_n P_n$
 
 where:
 
@@ -62,11 +62,11 @@ where:
 
 Portfolio weights are calculated as:
 
-$w_n = \frac{h_nP_n}{V}$
+$w_n =\frac{h_nP_n}{V}$
 
 The resulting portfolio value is approximately:
 
-$V^{\mathbf{h}} = \$1{,}122{,}981$
+$V^{\mathbf{h}} =\$1{,}122{,}981$
 
 ---
 
@@ -74,7 +74,7 @@ $V^{\mathbf{h}} = \$1{,}122{,}981$
 
 Joint stock return scenarios are transformed into portfolio return scenarios using the portfolio weights:
 
-$R_p = \sum_{n=1}^{N} w_nR_n$
+$R_p =\sum_{n=1}^{N} w_nR_n$
 
 where $R_p$ represents the portfolio return and $R_n$ represents the return of asset $n$.
 
@@ -101,13 +101,13 @@ Several complementary risk measures are used to characterize the portfolio loss 
 
 The expected loss is approximately:
 
-$\mathbb{E}[L] \approx -0.37\%$
+$\mathbb{E}[L]\approx -0.37\%$
 
 This corresponds to an expected portfolio return of approximately **+0.37%**.
 
 #### Standard Deviation
 
-$\sigma_L \approx 4.80\%$
+$\sigma_L\approx 4.80\%$
 
 The standard deviation indicates substantial dispersion around the expected outcome.
 
@@ -115,11 +115,11 @@ The standard deviation indicates substantial dispersion around the expected outc
 
 The portfolio's 99% Value-at-Risk is approximately:
 
-$VaR_{99\%} \approx 10.55\%$
+$VaR_{99\%}\approx10.55\%$
 
 In dollar terms:
 
-$0.1055 \times 1{,}122{,}981 \approx \$118{,}475$
+$0.1055 \times 1{,}122{,}981\approx\$118{,}475$
 
 This means there is approximately a **1% probability that the portfolio loss will exceed this level** over the one-week horizon.
 
@@ -127,11 +127,11 @@ This means there is approximately a **1% probability that the portfolio loss wil
 
 The portfolio's 99% Conditional Value-at-Risk is approximately:
 
-$CVaR_{99\%} \approx 12.63\%$
+$CVaR_{99\%}\approx 12.63\%$
 
 In dollar terms:
 
-$0.1263 \times 1{,}122{,}981 \approx \$141{,}822$
+$0.1263\times 1{,}122{,}981\approx\$141{,}822$
 
 Conditional on being in the worst 1% of scenarios, the average loss is therefore approximately **$141,822**.
 
@@ -155,7 +155,7 @@ A **LASSO regression** is used to obtain a sparse factor representation of portf
 
 The general factor model can be written as:
 
-$R_p = \alpha + \boldsymbol{\beta}^{\top}\mathbf{Z} + U$
+$R_p =\alpha + \boldsymbol{\beta}^{\top}\mathbf{Z} + U$
 
 where:
 
@@ -189,11 +189,7 @@ Risk attribution is performed using an **Euler decomposition**, allowing total p
 
 For a positively homogeneous risk measure $\rho$, Euler allocation can be expressed as:
 
-$\rho(\mathbf{x})
-=
-\sum_{i=1}^{N}
-x_i
-\frac{\partial \rho(\mathbf{x})}{\partial x_i}$
+$\rho(\mathbf{x}) = \sum_{i=1}^{N}x_i\frac{\partial \rho(\mathbf{x})}{\partial x_i}$
 
 Each term
 
