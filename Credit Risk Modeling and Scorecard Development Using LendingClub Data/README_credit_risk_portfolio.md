@@ -189,14 +189,14 @@ The bin boundaries are learned on the development sample and then applied unchan
 
 Each bin is transformed using Weight of Evidence:
 
-$
-WoE_i =
+
+$WoE_i =
 \ln
 \left(
 \frac{\text{Distribution of Defaults}_i}
 {\text{Distribution of Non-defaults}_i}
-\right)
-$
+\right)$
+
 
 Under this project's convention:
 
@@ -211,11 +211,11 @@ WoE allows categorical and binned numerical predictors to enter logistic regress
 
 Information Value measures the univariate discriminatory strength of each variable:
 
-$
-IV =
+
+$IV =
 \sum_i
-(\text{DefaultDist}_i-\text{NonDefaultDist}_i)\times WoE_i
-$
+(\text{DefaultDist}_i-\text{NonDefaultDist}_i)\times WoE_i$
+
 
 The strongest initial predictors include:
 
@@ -231,9 +231,9 @@ The strongest initial predictors include:
 
 The project initially retains variables with:
 
-$
-IV \ge 0.02
-$
+
+$IV \ge 0.02$
+
 
 IV is treated as a screening tool rather than the only feature-selection criterion. Business meaning, correlation, stability, and leakage risk are also considered.
 
@@ -339,9 +339,9 @@ The final logistic model is evaluated on both the development sample and the unt
 
 ### Accuracy
 
-$
-Accuracy=\frac{TP+TN}{TP+TN+FP+FN}
-$
+
+$Accuracy=\frac{TP+TN}{TP+TN+FP+FN}$
+
 
 Measures the fraction of all classifications that are correct.
 
@@ -349,26 +349,26 @@ Because the dataset is imbalanced, accuracy is not used as the primary metric.
 
 ### Precision
 
-$
-Precision=\frac{TP}{TP+FP}
-$
+
+$Precision=\frac{TP}{TP+FP}$
+
 
 Among borrowers predicted to default, the fraction that actually default.
 
 ### Recall
 
-$
-Recall=\frac{TP}{TP+FN}
-$
+
+$Recall=\frac{TP}{TP+FN}$
+
 
 Among all actual defaults, the fraction identified by the model.
 
 ### F1 Score
 
-$
-F1 =
-2\frac{Precision\times Recall}{Precision+Recall}
-$
+
+$F1 =
+2\frac{Precision\times Recall}{Precision+Recall}$
+
 
 Balances precision and recall.
 
@@ -383,21 +383,21 @@ It can be interpreted as the probability that a randomly selected defaulter rece
 
 ### Gini
 
-$
-Gini = 2\times AUC-1
-$
+
+$Gini = 2\times AUC-1$
+
 
 Gini contains the same ranking information as AUC and is commonly reported in credit-risk modeling.
 
 ### Kolmogorov–Smirnov (KS)
 
-$
-KS =
+
+$KS =
 \max_t
 \left|
 F_{Default}(t)-F_{NonDefault}(t)
-\right|
-$
+\right|$
+
 
 KS is the maximum separation between the cumulative score distributions of defaults and non-defaults.
 
@@ -411,10 +411,10 @@ It is especially informative when defaults are less frequent than non-defaults.
 
 ### Brier Score
 
-$
-Brier =
-\frac{1}{N}\sum_i(p_i-y_i)^2
-$
+
+$Brier =
+\frac{1}{N}\sum_i(p_i-y_i)^2$
+
 
 Measures squared probability error.
 
@@ -422,12 +422,12 @@ Measures squared probability error.
 
 ### Log Loss
 
-$
-LogLoss =
+
+$LogLoss =
 -\frac{1}{N}
 \sum_i
-[y_i\ln(p_i)+(1-y_i)\ln(1-p_i)]
-$
+[y_i\ln(p_i)+(1-y_i)\ln(1-p_i)]$
+
 
 Penalizes confident but incorrect probability forecasts.
 
@@ -488,11 +488,11 @@ Predicted PDs are ranked from highest to lowest and divided into ten approximate
 
 ### Cumulative Gain
 
-$
-Gain_k =
+
+$Gain_k =
 \frac{\text{Cumulative defaults captured through decile }k}
-{\text{Total defaults}}
-$
+{\text{Total defaults}}$
+
 
 This answers:
 
@@ -500,18 +500,18 @@ This answers:
 
 ### Lift
 
-$
-Lift_k =
-\frac{CumulativeGain_k}{CumulativePopulation_k}
-$
+
+$Lift_k =
+\frac{CumulativeGain_k}{CumulativePopulation_k}$
+
 
 Lift compares the model with random selection.
 
 For example, if the riskiest 20% of borrowers contain 40% of all defaults:
 
-$
-Lift=\frac{0.40}{0.20}=2
-$
+
+$Lift=\frac{0.40}{0.20}=2$
+
 
 The model is concentrating defaults at twice the rate of random selection.
 
@@ -526,21 +526,21 @@ Discrimination and calibration answer different questions:
 
 The calibration plot groups borrowers by predicted probability and compares:
 
-$
-Mean\ Predicted\ PD
-$
+
+$Mean\ Predicted\ PD$
+
 
 with:
 
-$
-Observed\ Default\ Rate
-$
+
+$Observed\ Default\ Rate$
+
 
 Perfect calibration lies on the 45-degree line:
 
-$
-Observed\ Default\ Rate = Predicted\ PD
-$
+
+$Observed\ Default\ Rate = Predicted\ PD$
+
 
 The out-of-time calibration curve in this project lies very close to the reference line across the observed PD range, indicating that the logistic model's probabilities align closely with realized default rates in the test sample.
 
@@ -550,15 +550,14 @@ The out-of-time calibration curve in this project lies very close to the referen
 
 The fitted logistic model is:
 
-$
-logit(PD)=\beta_0+\sum_j \beta_j WoE_j
-$
+
+$logit(PD)=\beta_0+\sum_j \beta_j WoE_j$
+
 
 The score is defined as:
 
-$
-Score = Offset-Factor\times logit(PD)
-$
+
+$Score = Offset-Factor\times logit(PD)$
 
 The project uses:
 
@@ -568,21 +567,21 @@ The project uses:
 
 Therefore a score of 1000 corresponds to Bad:Good odds of 1:10:
 
-$
-PD=\frac{0.1}{1+0.1}\approx9.09\%
-$
+
+$PD=\frac{0.1}{1+0.1}\approx9.09\%$
+
 
 The scaling factor is:
 
-$
-Factor=\frac{PDO}{\ln(2)}
-$
+
+$Factor=\frac{PDO}{\ln(2)}$
+
 
 and:
 
-$
-Offset=BaseScore+Factor\ln(BaseOdds)
-$
+
+$Offset=BaseScore+Factor\ln(BaseOdds)$
+
 
 Because score decreases as default odds increase:
 
@@ -599,22 +598,22 @@ The scorecard is validated by proving that its score transformation reproduces t
 
 From:
 
-$
-Score=Offset-Factor\times logit(PD)
-$
+
+$Score=Offset-Factor\times logit(PD)$
+
 
 we obtain:
-$
-logit(PD)=\frac{Offset-Score}{Factor}
-$
+
+$logit(PD)=\frac{Offset-Score}{Factor}$
+
 
 and:
 
-$
-PD=
+
+$PD=
 \frac{1}
-{1+\exp[-(Offset-Score)/Factor]}
-$
+{1+\exp[-(Offset-Score)/Factor]}$
+
 
 The PD reconstructed from the score should match `LogisticRegression.predict_proba()` up to floating-point precision.
 
