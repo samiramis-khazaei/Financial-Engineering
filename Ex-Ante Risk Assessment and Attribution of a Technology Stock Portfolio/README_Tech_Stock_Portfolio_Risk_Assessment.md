@@ -197,9 +197,7 @@ x_i
 
 Each term
 
-$RC_i =
-x_i
-\frac{\partial \rho(\mathbf{x})}{\partial x_i}$
+$RC_i =x_i\frac{\partial \rho(\mathbf{x})}{\partial x_i}$
 
 represents the risk contribution of factor $i$.
 
