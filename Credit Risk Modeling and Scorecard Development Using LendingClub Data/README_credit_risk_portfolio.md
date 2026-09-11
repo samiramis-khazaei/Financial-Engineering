@@ -460,6 +460,9 @@ The plot is used to assess both:
 
 A large gap between training and test AUC would indicate instability or overfitting. Similar curves suggest more stable ranking performance.
 
+<img width="703" height="559" alt="image" src="https://github.com/user-attachments/assets/4c2e0aa8-a92d-4e24-95b0-5cc169a464d7" />
+
+
 ---
 
 ## Confusion Matrix
@@ -479,6 +482,9 @@ the confusion matrix is:
 A **false negative** is a borrower who actually defaults but is classified as non-default.
 
 The confusion matrix depends on the classification threshold, so the default 0.50 cutoff should not automatically be interpreted as the optimal lending decision threshold.
+
+<img width="1121" height="480" alt="image" src="https://github.com/user-attachments/assets/f41f0c7f-4cf2-4b76-ad9d-854713bd4468" />
+
 
 ---
 
@@ -544,6 +550,13 @@ $Observed\ Default\ Rate = Predicted\ PD$
 
 The out-of-time calibration curve in this project lies very close to the reference line across the observed PD range, indicating that the logistic model's probabilities align closely with realized default rates in the test sample.
 
+<img width="625" height="559" alt="image" src="https://github.com/user-attachments/assets/3d19081b-c7c3-4844-ae0a-8bea1de8452e" />
+
+<img width="625" height="559" alt="image" src="https://github.com/user-attachments/assets/fc2e9967-1ee3-4d55-88c9-0996805f1ebc" />
+
+
+
+
 ---
 
 ## Credit Scorecard
@@ -589,6 +602,12 @@ Because score decreases as default odds increase:
 - lower score = higher risk
 
 A doubling of Bad:Good odds decreases the score by one PDO, or 200 points.
+
+<img width="745" height="482" alt="image" src="https://github.com/user-attachments/assets/01a4e14c-dde6-4782-ab4c-1ef5ced347d5" />
+
+
+<img width="878" height="482" alt="image" src="https://github.com/user-attachments/assets/9b4f70be-f2a9-42b1-b455-f06239ff4903" />
+
 
 ---
 
