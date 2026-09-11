@@ -113,13 +113,11 @@ The standard deviation indicates substantial dispersion around the expected outc
 
 #### 99% Value-at-Risk
 
-The portfolio's 99% Value-at-Risk is approximately:
+The portfolio's 99% Value-at-Risk is approximately:10.55
 
-$VaR_{99\%}\approx10.55\%$
 
-In dollar terms:
 
-$0.1055 \times 1{,}122{,}981\approx\$118{,}475$
+In dollar terms:$118{,}475$
 
 This means there is approximately a **1% probability that the portfolio loss will exceed this level** over the one-week horizon.
 
