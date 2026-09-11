@@ -123,13 +123,9 @@ This means there is approximately a **1% probability that the portfolio loss wil
 
 #### 99% Conditional Value-at-Risk
 
-The portfolio's 99% Conditional Value-at-Risk is approximately:
+The portfolio's 99% Conditional Value-at-Risk is approximately:12.63
 
-$CVaR_{99\%}\approx 12.63\%$
-
-In dollar terms:
-
-$0.1263\times 1{,}122{,}981\approx\$141{,}822$
+In dollar terms:$141{,}822$
 
 Conditional on being in the worst 1% of scenarios, the average loss is therefore approximately **$141,822**.
 
