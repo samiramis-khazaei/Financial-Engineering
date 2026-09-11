@@ -117,10 +117,10 @@ A remaining improvement is to label missing `emp_length` as **Missing/Unknown** 
 
 `earliest_cr_line` is converted into a borrower credit-history duration:
 
-\[
+$
 CreditHistoryMonths =
 IssueDate - EarliestCreditLine
-\]
+$
 
 This transforms two dates into a more interpretable risk variable: the number of months the borrower has had recorded credit history.
 
@@ -192,14 +192,14 @@ The bin boundaries are learned on the development sample and then applied unchan
 
 Each bin is transformed using Weight of Evidence:
 
-\[
+$
 WoE_i =
 \ln
 \left(
 \frac{\text{Distribution of Defaults}_i}
 {\text{Distribution of Non-defaults}_i}
 \right)
-\]
+$
 
 Under this project's convention:
 
@@ -214,11 +214,11 @@ WoE allows categorical and binned numerical predictors to enter logistic regress
 
 Information Value measures the univariate discriminatory strength of each variable:
 
-\[
+$
 IV =
 \sum_i
 (\text{DefaultDist}_i-\text{NonDefaultDist}_i)\times WoE_i
-\]
+$
 
 The strongest initial predictors include:
 
@@ -234,9 +234,9 @@ The strongest initial predictors include:
 
 The project initially retains variables with:
 
-\[
+$
 IV \ge 0.02
-\]
+$
 
 IV is treated as a screening tool rather than the only feature-selection criterion. Business meaning, correlation, stability, and leakage risk are also considered.
 
@@ -342,9 +342,9 @@ The final logistic model is evaluated on both the development sample and the unt
 
 ### Accuracy
 
-\[
+$
 Accuracy=\frac{TP+TN}{TP+TN+FP+FN}
-\]
+$
 
 Measures the fraction of all classifications that are correct.
 
@@ -352,26 +352,26 @@ Because the dataset is imbalanced, accuracy is not used as the primary metric.
 
 ### Precision
 
-\[
+$
 Precision=\frac{TP}{TP+FP}
-\]
+$
 
 Among borrowers predicted to default, the fraction that actually default.
 
 ### Recall
 
-\[
+$
 Recall=\frac{TP}{TP+FN}
-\]
+$
 
 Among all actual defaults, the fraction identified by the model.
 
 ### F1 Score
 
-\[
+$
 F1 =
 2\frac{Precision\times Recall}{Precision+Recall}
-\]
+$
 
 Balances precision and recall.
 
@@ -386,21 +386,21 @@ It can be interpreted as the probability that a randomly selected defaulter rece
 
 ### Gini
 
-\[
+$
 Gini = 2\times AUC-1
-\]
+$
 
 Gini contains the same ranking information as AUC and is commonly reported in credit-risk modeling.
 
 ### Kolmogorov–Smirnov (KS)
 
-\[
+$
 KS =
 \max_t
 \left|
 F_{Default}(t)-F_{NonDefault}(t)
 \right|
-\]
+$
 
 KS is the maximum separation between the cumulative score distributions of defaults and non-defaults.
 
@@ -414,10 +414,10 @@ It is especially informative when defaults are less frequent than non-defaults.
 
 ### Brier Score
 
-\[
+$
 Brier =
 \frac{1}{N}\sum_i(p_i-y_i)^2
-\]
+$
 
 Measures squared probability error.
 
@@ -425,16 +425,30 @@ Measures squared probability error.
 
 ### Log Loss
 
-\[
+$
 LogLoss =
 -\frac{1}{N}
 \sum_i
 [y_i\ln(p_i)+(1-y_i)\ln(1-p_i)]
-\]
+$
 
 Penalizes confident but incorrect probability forecasts.
 
 **Lower is better.**
+
+**Results**
+
+| Metric        | Train    | Test     |
+|---------------|----------|----------|
+| Accuracy      | 0.818150 | 0.791256 |
+| Precision     | 0.524085 | 0.543619 |
+| Recall        | 0.036989 | 0.051722 |
+| F1            | 0.069101 | 0.094457 |
+| AUC           | 0.699164 | 0.700243 |
+| Gini          | 0.398327 | 0.400485 |
+| Brier         | 0.137459 | 0.152101 |
+| LogLoss       | 0.436751 | 0.471957 |
+| KS            | 0.289238 | 0.292068 |
 
 ---
 
@@ -477,11 +491,11 @@ Predicted PDs are ranked from highest to lowest and divided into ten approximate
 
 ### Cumulative Gain
 
-\[
+$
 Gain_k =
 \frac{\text{Cumulative defaults captured through decile }k}
 {\text{Total defaults}}
-\]
+$
 
 This answers:
 
@@ -489,18 +503,18 @@ This answers:
 
 ### Lift
 
-\[
+$
 Lift_k =
 \frac{CumulativeGain_k}{CumulativePopulation_k}
-\]
+$
 
 Lift compares the model with random selection.
 
 For example, if the riskiest 20% of borrowers contain 40% of all defaults:
 
-\[
+$
 Lift=\frac{0.40}{0.20}=2
-\]
+$
 
 The model is concentrating defaults at twice the rate of random selection.
 
@@ -515,21 +529,21 @@ Discrimination and calibration answer different questions:
 
 The calibration plot groups borrowers by predicted probability and compares:
 
-\[
+$
 Mean\ Predicted\ PD
-\]
+$
 
 with:
 
-\[
+$
 Observed\ Default\ Rate
-\]
+$
 
 Perfect calibration lies on the 45-degree line:
 
-\[
+$
 Observed\ Default\ Rate = Predicted\ PD
-\]
+$
 
 The out-of-time calibration curve in this project lies very close to the reference line across the observed PD range, indicating that the logistic model's probabilities align closely with realized default rates in the test sample.
 
@@ -539,15 +553,15 @@ The out-of-time calibration curve in this project lies very close to the referen
 
 The fitted logistic model is:
 
-\[
+$
 logit(PD)=\beta_0+\sum_j \beta_j WoE_j
-\]
+$
 
 The score is defined as:
 
-\[
+$
 Score = Offset-Factor\times logit(PD)
-\]
+$
 
 The project uses:
 
@@ -557,21 +571,21 @@ The project uses:
 
 Therefore a score of 1000 corresponds to Bad:Good odds of 1:10:
 
-\[
+$
 PD=\frac{0.1}{1+0.1}\approx9.09\%
-\]
+$
 
 The scaling factor is:
 
-\[
+$
 Factor=\frac{PDO}{\ln(2)}
-\]
+$
 
 and:
 
-\[
+$
 Offset=BaseScore+Factor\ln(BaseOdds)
-\]
+$
 
 Because score decreases as default odds increase:
 
@@ -588,23 +602,22 @@ The scorecard is validated by proving that its score transformation reproduces t
 
 From:
 
-\[
+$
 Score=Offset-Factor\times logit(PD)
-\]
+$
 
 we obtain:
-
-\[
+$
 logit(PD)=\frac{Offset-Score}{Factor}
-\]
+$
 
 and:
 
-\[
+$
 PD=
 \frac{1}
 {1+\exp[-(Offset-Score)/Factor]}
-\]
+$
 
 The PD reconstructed from the score should match `LogisticRegression.predict_proba()` up to floating-point precision.
 
@@ -656,40 +669,6 @@ A practical cutoff should reflect:
 - pricing
 - risk appetite
 - capital requirements
-
----
-
-## Recommended Repository Structure
-
-```text
-credit-risk-scorecard/
-│
-├── Credit_Risk_Scorecard.ipynb
-├── README.md
-└── images/
-    ├── target_distribution.png
-    ├── iv_ranking.png
-    ├── woe_examples.png
-    ├── roc_curve.png
-    ├── confusion_matrix.png
-    ├── gains_curve.png
-    ├── calibration_curve.png
-    └── score_distribution.png
-```
-
----
-
-## Next Steps
-
-- Add final train/test metric values to this README after the notebook has been fully executed.
-- Add the cumulative gains chart and lift chart.
-- Add score distributions for defaults vs non-defaults.
-- Add a score-band default-rate table.
-- Add Population Stability Index (PSI) for monitoring.
-- Move supervised preprocessing inside cross-validation in a production-grade version.
-- Replace `emp_length = unemployed` with a neutral missing category unless justified by the data dictionary.
-- Explicitly remove split-control fields such as issue year from candidate model features after the temporal split.
-- Document the economic rationale for the final lending threshold.
 
 ---
 
